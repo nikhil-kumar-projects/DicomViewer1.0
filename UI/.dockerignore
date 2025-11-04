@@ -1,0 +1,8 @@
+dicom-viewer-ui/node_modules
+dicom-viewer-ui/dist
+dicom-viewer-ui/.git
+dicom-viewer-ui/.gitignore
+Dockerfile
+.dockerignore
+dicom-viewer-ui/*.log
+dicom-viewer-ui/npm-debug.log
