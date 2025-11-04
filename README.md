@@ -95,7 +95,7 @@ Before you begin, ensure you have the following installed on your system:
 
 ---
 
-## Frontend: Angular
+## Frontend: Angular (Development Environment)
 
 1. **Navigate to the frontend directory**  
    ```bash
@@ -117,5 +117,59 @@ Before you begin, ensure you have the following installed on your system:
    ng serve
    ```
    The application will be accessible at `http://localhost:4200` by default.
+
+---
+
+## Container Deployment (Frontend: Angular)
+
+1. **Navigate to the UI directory**  
+   ```bash
+   cd DicomViewer1.0/UI
+   ```
+
+2. **Build the Podman image**  
+   ```bash
+   podman build -t dicom-viewer:latest .
+   ```
+
+3. **Run the Podman container**  
+   ```bash
+   podman run -d --name dicom-viewer -p 8080:80 dicom-viewer:latest
+   ```
+
+4. **View running containers**  
+   ```bash
+   podman ps
+   ```
+
+5. **View available images**  
+   ```bash
+   podman images
+   ```
+
+### Container Management
+
+- **Test the containerized application**  
+  Visit `http://localhost:8080` in browser to verify the Angular application is running.
+
+- **Stop and remove the container (when needed)**  
+  ```bash
+  # For Docker
+  docker stop dicom-viewer
+  docker rm dicom-viewer
+  
+  # For Podman
+  podman stop dicom-viewer
+  podman rm dicom-viewer
+  ```
+
+- **Access container shell (for debugging)**  
+  ```bash
+  # For Docker
+  docker exec -it dicom-viewer bash
+  
+  # For Podman
+  podman exec -it dicom-viewer bash
+  ```
 
 ---
